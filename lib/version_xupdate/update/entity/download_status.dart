@@ -1,0 +1,1 @@
+enum DownloaderStatus { unstarted, downloading, paused, failed, succeeded }
