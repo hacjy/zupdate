@@ -1,6 +1,7 @@
 # zupdate
 
 [![pub package](https://img.shields.io/pub/v/zupdate.svg)](https://pub.dartlang.org/packages/zupdate)
+
 Flutter plugin implementing version update.\
 On Android it downloads the file (with progress reporting) and triggers app installation intent.\
 On iOS it opens safari with specified ipa url.
