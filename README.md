@@ -1,5 +1,6 @@
 # zupdate
 
+[![pub package](https://img.shields.io/pub/v/zupdate.svg)](https://pub.dartlang.org/packages/zupdate)
 Flutter plugin implementing version update.\
 On Android it downloads the file (with progress reporting) and triggers app installation intent.\
 On iOS it opens safari with specified ipa url.
@@ -46,7 +47,11 @@ You can refer to the following project:
 
 To use this plugin, add `zupdate` as a [dependency in your `pubspec.yaml` file](https://flutter.io/platform-plugins/).
 ```
-//github  集成
+//pub 集成
+dependencies:
+  zupdate: ^0.1.0
+  
+//github 集成
 dependencies:
   zupdate:
     git:
