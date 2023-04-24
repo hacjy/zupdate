@@ -15,7 +15,7 @@ You can refer to the following project:
 1、in the pubspec.yaml file, add get: ^4.6.5 and flutter_screenutil: ^5.5.3+2 as a dependency.\
 2、in the main.dart file, the root node needs to use the following code
 ``` dart
-** //根结点要要使用ScreenUtilInit和getx的GetMaterialApp **
+//根结点要要使用ScreenUtilInit和getx的GetMaterialApp
     return ScreenUtilInit(
         designSize: const Size(1920, 1080),
     minTextAdapt: true,
