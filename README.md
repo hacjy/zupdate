@@ -46,10 +46,6 @@ You can refer to the following project:
 
 To use this plugin, add `zupdate` as a [dependency in your `pubspec.yaml` file](https://flutter.io/platform-plugins/).
 ```
-// pub 集成
-dependencies:
-  zupdate: ^0.1.0
-
 //github  集成
 dependencies:
   zupdate:
@@ -57,6 +53,12 @@ dependencies:
       url: git://github.com/hacjy/zupdate.git
       ref: master
 ```
+
+## Preview
+
+![]()
+![]()
+![]()
 
 ## Example
 
