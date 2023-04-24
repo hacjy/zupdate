@@ -8,7 +8,7 @@ You can refer to the following project:
 
 [https://github.com/hacjy/zupdate/tree/master/example](https://github.com/hacjy/zupdate/tree/master/example)
 
-#Important changes:
+# Important changes:
 * A beautiful set of updated UI has been provided.
 * A flutter plugin for install apk for android; and using url to go to app store for iOS.【install_plugin】
 * use get: ^4.6.5 and flutter_screenutil: ^5.5.3+2：\
