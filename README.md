@@ -11,7 +11,7 @@ You can refer to the following project:
 ** Important changes: **
 * A beautiful set of updated UI has been provided.
 * A flutter plugin 【install_plugin】 for install apk for android; and using url to go to app store for iOS.
-* ** use get: ^4.6.5 and flutter_screenutil: ^5.5.3+2：\ **
+* use get: ^4.6.5 and flutter_screenutil: ^5.5.3+2：\
 1、in the pubspec.yaml file, add get: ^4.6.5 and flutter_screenutil: ^5.5.3+2 as a dependency.\
 2、in the main.dart file, the root node needs to use the following code
 ``` dart
