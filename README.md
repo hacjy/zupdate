@@ -43,7 +43,7 @@ You can refer to the following project:
     );});
   }
 ```
- 3、 in the pubspec.yaml file, use the following code
+    3、 in the pubspec.yaml file, use the following code
 ```
 assets:
 - assets/
