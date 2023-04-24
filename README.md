@@ -56,9 +56,10 @@ dependencies:
 
 ## Preview
 
-![]()
-![]()
-![]()
+![](https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111039_1.jpg)
+![](https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111051_2.jpg)
+![](https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111203_3.jpg)
+![](https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111236_retry.jpg)
 
 ## Example
 
