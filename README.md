@@ -1,17 +1,17 @@
-# zupdate
+## zupdate
 
 Flutter plugin implementing version update.\
 On Android it downloads the file (with progress reporting) and triggers app installation intent.\
-On iOS it opens safari with specified ipa url.\
+On iOS it opens safari with specified ipa url.
 
 You can refer to the following project:
 
 [https://github.com/hacjy/zupdate/tree/master/example](https://github.com/hacjy/zupdate/tree/master/example)
 
-Important changes:
+#Important changes:
 * A beautiful set of updated UI has been provided.
 * A flutter plugin for install apk for android; and using url to go to app store for iOS.【install_plugin】
-* use get: ^4.6.5 and flutter_screenutil: ^5.5.3+2：
+* use get: ^4.6.5 and flutter_screenutil: ^5.5.3+2：\
 1、in the pubspec.yaml file, add get: ^4.6.5 and flutter_screenutil: ^5.5.3+2 as a dependency.\
 2、in the main.dart file, the root node needs to use the following code
 ``` dart
@@ -45,6 +45,18 @@ Important changes:
 ## Usage
 
 To use this plugin, add `zupdate` as a [dependency in your `pubspec.yaml` file](https://flutter.io/platform-plugins/).
+```
+// pub 集成
+dependencies:
+  zupdate: ^0.1.0
+
+//github  集成
+dependencies:
+  zupdate:
+    git:
+      url: git://github.com/hacjy/zupdate.git
+      ref: master
+```
 
 ## Example
 
@@ -83,12 +95,12 @@ import 'package:zupdate/install_plugin.dart';
 
  // 安装apk
 static void installAPP(String uri) async {
-if (Platform.isAndroid) {
-String packageName = await CommonUtils.getPackageName();
-InstallPlugin.installApk(uri, packageName);
-} else {
-InstallPlugin.gotoAppStore(uri);
-}
+    if (Platform.isAndroid) {
+        String packageName = await CommonUtils.getPackageName();
+        InstallPlugin.installApk(uri, packageName);
+    } else {
+        InstallPlugin.gotoAppStore(uri);
+    }
 }
 ```
 
