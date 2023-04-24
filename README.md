@@ -56,6 +56,7 @@ dependencies:
 
 ## Preview
 
+<img decoding="async" src="[smiley-2.gif](https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111039_1.jpg)" width="100" height="100"/>
 ![](https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111039_1.jpg)
 ![](https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111051_2.jpg)
 ![](https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111203_3.jpg)
