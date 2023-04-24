@@ -56,11 +56,10 @@ dependencies:
 
 ## Preview
 
-<img src="https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111039_1.jpg" width="480" height="270"/>
-![](https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111039_1.jpg)
-![](https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111051_2.jpg)
-![](https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111203_3.jpg)
-![](https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111236_retry.jpg)
+<img src="https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111039_1.jpg" width="240" height="135"/>
+<img src="https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111051_2.jpg" width="240" height="135"/>
+<img src="https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111203_3.jpg" width="240" height="135"/>
+<img src="https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111236_retry.jpg" width="240" height="135"/>
 
 ## Example
 
