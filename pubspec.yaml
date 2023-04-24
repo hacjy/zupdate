@@ -1,7 +1,7 @@
 name: zupdate
-description: A new Flutter project.
+description: Flutter plugin implementing version update.
 version: 0.1.0
-homepage:
+homepage: https://github.com/hacjy/zupdate.git
 
 environment:
   sdk: ">=2.17.6 <3.0.0"

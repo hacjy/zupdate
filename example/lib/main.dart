@@ -35,16 +35,10 @@ class _MyAppState extends State<MyApp> {
           appBar: AppBar(
             title: const Text('VersionUpdate Plugin App'),
           ),
-          body: GestureDetector(
-            onTap: (){
-              UpdateVersion.appUpdate(context);
-            },
-            child: const Center(child: SizedBox(
-              width: 100,
-              height: 100,
+          body:  Center(child: ElevatedButton(
+              onPressed: () {  UpdateVersion.appUpdate(context);},
               child: Text('Check Update'),
             ),)
-          )
       ),
     );});
   }
