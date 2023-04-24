@@ -53,6 +53,10 @@ then add update_bg_app_top.png and update_ic_close.png to assets/img. These two 
 
 To use this plugin, add `zupdate` as a [dependency in your `pubspec.yaml` file](https://flutter.io/platform-plugins/).
 ```
+//pub 集成
+dependencies:
+  zupdate: ^0.1.0
+  
 //github  集成
 dependencies:
   zupdate:
