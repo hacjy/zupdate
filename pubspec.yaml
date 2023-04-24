@@ -1,6 +1,6 @@
 name: zupdate
 description: A new Flutter project.
-version: 0.0.1
+version: 0.1.0
 homepage:
 
 environment:
@@ -13,8 +13,8 @@ dependencies:
   plugin_platform_interface: ^2.0.2
   url_launcher: ^6.1.5
   package_info_plus: ^1.4.3
-  get: ^4.6.5
   easy_debounce: ^2.0.2+1
+  get: ^4.6.5
   flutter_screenutil: ^5.5.3+2
 
 dev_dependencies:

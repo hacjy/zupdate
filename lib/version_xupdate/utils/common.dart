@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:zupdate/install_plugin.dart';
-import 'package:zupdate/zupdate.dart';
 
 import 'z_log.dart';
 
