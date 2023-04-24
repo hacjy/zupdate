@@ -56,12 +56,8 @@ dependencies:
 
 ## Preview
 
-<figure>
-<img src="https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111039_1.jpg" width="360" height="202"/>
-<img src="https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111051_2.jpg" width="360" height="202"/>
-<img src="https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111203_3.jpg" width="360" height="202"/>
-<img src="https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111236_retry.jpg" width="360" height="202"/>
-</figure>
+<img src="https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111039_1.jpg" width="360" height="202"/><img src="https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111051_2.jpg" width="360" height="202"/>
+<img src="https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111203_3.jpg" width="360" height="202"/><img src="https://github.com/hacjy/zupdate/blob/master/example/assets/screenshot/Screenshot_20230424_111236_retry.jpg" width="360" height="202"/>
 
 ## Example
 
