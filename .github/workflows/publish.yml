@@ -7,12 +7,14 @@ on:
       - master
 
 jobs:
-  publish_dart_packages:
+  publishing:
     runs-on: ubuntu-latest
     steps:
+      # 拉取仓库代码
+      - name: "Checkout"
       - uses: actions/checkout@v3
-
-      - name: publish
+      # 发布插件
+      - name: Dart and Flutter Package Publisher
           uses: k-paxian/dart-package-publisher@master
           with:
             accessToken: ${{ secrets.OAUTH_ACCESS_TOKEN }}
