@@ -86,9 +86,9 @@ class CommonUtils {
       if (file == null) {
         return;
       }
-      bool isExist = await file!.exists();
+      bool isExist = await file.exists();
       if (isExist) {
-        await file!.delete();
+        await file.delete();
       }
     } catch (e) {
       zeroLog(e);

@@ -26,7 +26,7 @@ class NumberProgress extends StatelessWidget {
   /// 边距
   final EdgeInsetsGeometry padding;
 
-  NumberProgress(
+  const NumberProgress(
       {Key? key,
       this.height = 20.0,
       this.value = 0.0,
