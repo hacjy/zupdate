@@ -50,7 +50,7 @@ assets:
 - assets/img/
 ```
 then add update_bg_app_top.png and update_ic_close.png to assets/img. These two images are copied from assets/img in example.
-4、
+
 
 ## Usage
 
