@@ -12,8 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Publish if new
-          id: publish
+      - name: publish
           uses: k-paxian/dart-package-publisher@master
           with:
             accessToken: ${{ secrets.OAUTH_ACCESS_TOKEN }}
