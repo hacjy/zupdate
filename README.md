@@ -79,6 +79,7 @@ dependencies:
 // IMPORT PACKAGE
 import 'package:zupdate/version_xupdate/update/entity/update_entity.dart';
 import 'package:zupdate/version_xupdate/update/flutter_update.dart';
+
 //版本更新
  static Future<void> update(
       BuildContext context, Map<String, dynamic> appInfo) async {
