@@ -12,10 +12,12 @@ import '../../zupdate.dart';
 import '../dialog/update_dialog.dart';
 import '../utils/common.dart';
 import '../utils/confirm_dialog.dart';
+import '../utils/language_util.dart';
 import '../utils/z_log.dart';
 import 'entity/download_model.dart';
 import 'entity/update_entity.dart';
 import 'update.dart';
+import 'update_config.dart';
 
 class UpdatePrompter {
   /// 版本更新信息
@@ -34,7 +36,7 @@ class UpdatePrompter {
   DownloadModel model = DownloadModel();
   var downloadHandler;
   var retryDownloadCount = -1;
-  final maxRetryCount = 4;
+  var maxRetryCount = 4;
 
   void autoRetry(){
     if(retryDownloadCount>=maxRetryCount){//重试5次 0-4
@@ -68,12 +70,15 @@ class UpdatePrompter {
     }
   }
 
-  void show(BuildContext context) async {
+  void show(BuildContext context,{UpdateConfig? config}) async {
     if (isShow()) {
       return;
     }
-    String title =
-        "Whether to upgrade to ${updateEntity!.versionName} version？";
+    maxRetryCount = config?.retryCount??4;
+    CommonUtils.apkName = config?.apkName??'app_update.apk';
+    CommonUtils.defaultEnLanguage= !(config?.chLanguage??false);
+    String title = config?.title??
+        getDefaultTitle(updateEntity!.versionName);
     String updateContent = getUpdateContent();
     if (Platform.isAndroid) {
       _apkFile = await CommonUtils.getApkFile();
@@ -82,11 +87,14 @@ class UpdatePrompter {
       context,
       title: title,
       updateContent: updateContent,
-      extraHeight: 10,
+      extraHeight: config?.extraHeight??10,
       enableIgnore: updateEntity!.isIgnorable,
       isForce: updateEntity!.isForce,
       onUpdate: onUpdate,
       onInstall: doInstall,
+      progressBackgroundColor: config?.progressBackgroundColor?? const Color(0xFFFFCDD2),
+      themeColor:  config?.themeColor?? Colors.red,
+      topImage:  config?.topImage,
     );
   }
 
@@ -95,7 +103,7 @@ class UpdatePrompter {
     CommonUtils.getTargetSize(updateEntity!.apkSize.toDouble());
     String updateContent = "";
     if (targetSize.isNotEmpty) {
-      updateContent += "New version size：$targetSize\n";
+      updateContent += getTotalSizeTxt(targetSize);
     }
     updateContent += updateEntity!.updateContent;
     return updateContent;
@@ -160,11 +168,11 @@ class UpdatePrompter {
         //   height: 40.w,
         // ),
         // showClose: true,
-        title: 'Updates',
+        title: getUpdateTitle(),
         content: richLinkText(
-            'Failed to download the installation package, please retry or click ',
-            'the link',
-            ' to download the file to install once it has been downloaded',
+            getDownloadTip1(),
+            getDownloadTip2(),
+            getDownloadTip3(),
             updateEntity!.downloadUrl),
         // left: 'Download in browser',
         // leftColor: Colors.black,
@@ -173,7 +181,7 @@ class UpdatePrompter {
         //   launchUrl(Uri.parse(updateEntity!.downloadUrl),
         //       mode: LaunchMode.externalApplication);
         // },
-        right: 'Retry',
+        right: getRetryTxt(),
         rightColor: Colors.red,
         onRight: () {
           Get.back();
@@ -186,7 +194,6 @@ class UpdatePrompter {
     try {
       zeroLog('executeDownload retryDownloadCount=$retryDownloadCount');
       String fileName = CommonUtils.apkName;
-      // url = 'https://298383278759-fuji-prod-us-west-2.s3.us-west-2.amazonaws.com/kiosk/zero%26kiosk-latest.apk';
 
       model.url = url;
       model.status = DownloaderStatus.downloading;

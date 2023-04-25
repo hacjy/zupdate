@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:zupdate/version_xupdate/update/update_config.dart';
 
 import '../utils/common.dart';
 import 'update_prompter.dart';
@@ -15,7 +16,7 @@ class UpdateManager {
   }
 
   static void checkUpdate(BuildContext context,
-      XupdateEntity.UpdateEntity params) {
+      XupdateEntity.UpdateEntity params,{UpdateConfig? config}) {
     prompter ??= UpdatePrompter(
         updateEntity: params,
         onInstall: (String filePath) {
@@ -23,7 +24,7 @@ class UpdateManager {
         });
     if (!prompter!.isShow()) {
       prompter!.setUpdateEntity(params);
-      prompter!.show(context);
+      prompter!.show(context,config: config);
     }
   }
 

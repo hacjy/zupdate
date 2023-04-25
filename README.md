@@ -50,6 +50,7 @@ assets:
 - assets/img/
 ```
 then add update_bg_app_top.png and update_ic_close.png to assets/img. These two images are copied from assets/img in example.
+4、
 
 ## Usage
 
@@ -57,7 +58,7 @@ To use this plugin, add `zupdate` as a [dependency in your `pubspec.yaml` file](
 ```
 //pub 集成
 dependencies:
-  zupdate: ^0.1.0
+  zupdate: ^0.2.0
 
 //github  集成
 dependencies:
@@ -77,23 +78,32 @@ dependencies:
 ``` dart
 // IMPORT PACKAGE
 import 'package:zupdate/version_xupdate/update/entity/update_entity.dart';
-import 'package:zupdate/version_xupdate/update/update.dart';
+import 'package:zupdate/version_xupdate/update/flutter_update.dart';
 //版本更新
-static Future<void> update(BuildContext context, Map<String, dynamic> appInfo) async {
+ static Future<void> update(
+      BuildContext context, Map<String, dynamic> appInfo) async {
     try {
       final url = appInfo['update_url'];
-        UpdateEntity entity = UpdateEntity(
-            isForce: appInfo['update_type'] == 1,
-            hasUpdate: true,
-            isIgnorable: false,
-            versionCode: appInfo['version_code'],
-            versionName: appInfo['version_name'],
-            updateContent: appInfo['update_content'],
-            apkMd5: appInfo['app_md5']??'',
-            // apkSize: appInfo['package_size'],
-            downloadUrl: appInfo['update_url']
-            );
-        UpdateManager.checkUpdate(context,entity);
+      UpdateEntity entity = UpdateEntity(
+          isForce: appInfo['update_type'] == 1,
+          hasUpdate: true,
+          isIgnorable: false,
+          versionCode: appInfo['version_code'],
+          versionName: appInfo['version_name'],
+          updateContent: appInfo['update_content'],
+          apkMd5: appInfo['app_md5'] ?? '',
+          // apkSize: appInfo['package_size'],
+          downloadUrl: appInfo['update_url']);
+      UpdateManager.checkUpdate(context, entity,
+          //支持自定义头部图片，按钮主题色，进度条颜色，标题,标题距离头部图片的高度,apk文件名,是否显示中文文本
+          // config: UpdateConfig(
+              // apkName: 'test.apk',
+              // title: 'test update version',
+              // themeColor: Colors.blueAccent,
+              // progressBackgroundColor: Colors.blue.withOpacity(0.3),
+              // extraHeight: 10,
+              // chLanguage: true)
+      );
     } catch (e) {
       print(e);
     }
@@ -117,15 +127,4 @@ static void installAPP(String uri) async {
     }
 }
 ```
-
-## Getting Started
-
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
-
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 

@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:zupdate/version_xupdate/utils/language_util.dart';
 import '../utils/common.dart';
 import 'number_progress.dart';
 
@@ -50,9 +51,10 @@ class UpdateDialog {
         enableIgnore: enableIgnore,
         onIgnore: onIgnore,
         isForce: isForce,
-        updateButtonText: updateButtonText ?? 'Update',
-        ignoreButtonText: ignoreButtonText ?? 'Ignore',
-        onClose: onClose ?? () => dismiss());
+        updateButtonText: updateButtonText ?? getBtnUpdateTxt(),
+        ignoreButtonText: ignoreButtonText ?? getBtnIgnoreTxt(),
+        onClose:onClose?? ()=> dismiss()
+    );
   }
 
   /// 显示弹窗
@@ -80,7 +82,7 @@ class UpdateDialog {
   Future<bool> dismiss() {
     try {
       if (isShowing()) {
-        Navigator.pop(_context);
+       Get.back();
 
         return Future<bool>.value(true);
       } else {
@@ -314,7 +316,7 @@ class UpdateWidget extends StatelessWidget {
                                     ? onInstall
                                     : onUpdate,
                                 child: Text(progressObx.value > 1
-                                    ? 'Install'
+                                    ? getBtnInstallTxt()
                                     : updateButtonText),
                               ),
                             ),

@@ -9,7 +9,8 @@ import 'z_log.dart';
 class CommonUtils {
   CommonUtils._internal();
 
-  static const String apkName = 'update.apk';
+  static String apkName = 'update.apk';
+  static bool defaultEnLanguage = true;
 
   static String getTargetSize(double kbSize) {
     if (kbSize <= 0) {
@@ -56,8 +57,11 @@ class CommonUtils {
 
   /// /data/user/0/XXX.XXX.XXX/files/z_update/XXX.apk
   static Future<File?> getApkFile(
-      {String fileName = apkName}) async {
+      {String fileName = ''}) async {
     try {
+      if(fileName.isEmpty){
+        fileName = apkName;
+      }
       var path = await InstallPlugin.getApkDirectory();
       String dataDir = "$path";
       //File full path
@@ -73,8 +77,11 @@ class CommonUtils {
 
   ///文件没有校验完整性 所以每次安装完或重启app需要手动删除下
   static Future<void> deleteApkFile(
-      {String fileName = apkName}) async {
+      {String fileName = ''}) async {
     try {
+      if(fileName.isEmpty){
+        fileName = apkName;
+      }
       File? file = await getApkFile(fileName: fileName);
       if (file == null) {
         return;

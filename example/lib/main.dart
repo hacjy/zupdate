@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
    return GetMaterialApp(
       home: Scaffold(
           appBar: AppBar(
-            title: const Text('VersionUpdate Plugin App'),
+            title: const Text('Zupdate Plugin Example'),
           ),
           body:  Center(child: ElevatedButton(
               onPressed: () {  UpdateVersion.appUpdate(context);},
