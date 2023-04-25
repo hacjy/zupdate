@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@master
       # 发布插件
       - name: Dart and Flutter Package Publisher
-        uses: k-paxian/dart-package-publisher@master
+        uses: k-paxian/dart-package-publisher@v2
         with:
           # 设置发布插件需要的 Token
           accessToken: ${{ secrets.OAUTH_ACCESS_TOKEN }}
