@@ -8,7 +8,6 @@ import 'number_progress.dart';
 
 ///版本更新加提示框
 class UpdateDialog {
-  late BuildContext _context;
   late UpdateWidget _widget;
 
   UpdateDialog(BuildContext context,
@@ -32,7 +31,6 @@ class UpdateDialog {
       String? updateButtonText,
       String? ignoreButtonText,
       VoidCallback? onClose}) {
-    _context = context;
     _widget = UpdateWidget(
         width: width,
         title: title,
@@ -248,130 +246,128 @@ class UpdateWidget extends StatelessWidget {
     final double dialogWidth = width <= 0 ? getFitWidth(context) * 0.5 : width;
     return Material(
         type: MaterialType.transparency,
-        child: Container(
-          child: SizedBox(
-            width: dialogWidth,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(
-                  width: dialogWidth,
-                  child: topImage ??
-                      Image.asset('assets/img/update_bg_app_top.png',
-                          fit: BoxFit.fill),
-                ),
-                Container(
-                  width: dialogWidth,
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.only(
-                      left: 16, right: 16, top: 8, bottom: 8),
-                  decoration: ShapeDecoration(
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(radius),
-                          bottomRight: Radius.circular(radius)),
-                    ),
+        child: SizedBox(
+          width: dialogWidth,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(
+                width: dialogWidth,
+                child: topImage ??
+                    Image.asset('assets/img/update_bg_app_top.png',
+                        fit: BoxFit.fill),
+              ),
+              Container(
+                width: dialogWidth,
+                alignment: Alignment.center,
+                padding: const EdgeInsets.only(
+                    left: 16, right: 16, top: 8, bottom: 8),
+                decoration: ShapeDecoration(
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(radius),
+                        bottomRight: Radius.circular(radius)),
                   ),
-                  child: SingleChildScrollView(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Container(
-                            padding: EdgeInsets.only(top: extraHeight),
-                            child: Text(title,
-                                style: TextStyle(
-                                    fontSize: titleTextSize,
-                                    color: Colors.black)),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 10),
-                            child: Text(updateContent,
-                                style: TextStyle(
-                                    fontSize: contentTextSize,
-                                    color: const Color(0xFF666666))),
-                          ),
-                          Obx(() =>
-                          (progressObx.value < 0 || progressObx.value > 1)?
-                          Column(children: <Widget>[
-                            FractionallySizedBox(
-                              widthFactor: 1,
-                              child: ElevatedButton(
-                                style: ButtonStyle(
-                                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                  textStyle: MaterialStateProperty.all(
-                                      TextStyle(fontSize: buttonTextSize)),
-                                  foregroundColor:
-                                  MaterialStateProperty.all(Colors.white),
-                                  shape: MaterialStateProperty.all(
-                                      RoundedRectangleBorder(
-                                          borderRadius:
-                                          BorderRadius.circular(5))),
-                                  elevation: MaterialStateProperty.all(0),
-                                  backgroundColor: MaterialStateProperty.all(
-                                      themeColor),
-                                ),
-                                onPressed: progressObx.value > 1
-                                    ? onInstall
-                                    : onUpdate,
-                                child: Text(progressObx.value > 1
-                                    ? getBtnInstallTxt()
-                                    : updateButtonText),
-                              ),
-                            ),
-                            if (enableIgnore && onIgnore != null)
-                              FractionallySizedBox(
-                                  widthFactor: 1,
-                                  child: TextButton(
-                                    style: ButtonStyle(
-                                      tapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
-                                      textStyle: MaterialStateProperty.all(
-                                          TextStyle(
-                                              fontSize: buttonTextSize)),
-                                      foregroundColor: MaterialStateProperty.all(
-                                          const Color(0xFF666666)),
-                                      shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder(
-                                              borderRadius:
-                                              BorderRadius.circular(5))),
-                                    ),
-                                    child: Text(ignoreButtonText),
-                                    onPressed: onIgnore,
-                                  ))
-                            else
-                              const SizedBox()
-                          ])
-                              :
-                          NumberProgress(
-                              value: progressObx.value,
-                              backgroundColor: progressBackgroundColor,
-                              valueColor: themeColor,
-                              padding: const EdgeInsets.symmetric(vertical: 10))),
-                        ],
-                      )),
                 ),
-                if (!isForce)
-                  Column(children: <Widget>[
-                    const SizedBox(
-                        width: 1.5,
-                        height: 50,
-                        child: DecoratedBox(
-                            decoration: BoxDecoration(color: Colors.white))),
-                    IconButton(
-                      iconSize: 30,
-                      constraints:
-                      const BoxConstraints(maxHeight: 30, maxWidth: 30),
-                      padding: EdgeInsets.zero,
-                      icon: Image.asset('assets/img/update_ic_close.png'),
-                      onPressed: onClose,
-                    )
-                  ])
-                else
-                  const SizedBox()
-              ],
-            ),
+                child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Container(
+                          padding: EdgeInsets.only(top: extraHeight),
+                          child: Text(title,
+                              style: TextStyle(
+                                  fontSize: titleTextSize,
+                                  color: Colors.black)),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 10),
+                          child: Text(updateContent,
+                              style: TextStyle(
+                                  fontSize: contentTextSize,
+                                  color: const Color(0xFF666666))),
+                        ),
+                        Obx(() =>
+                        (progressObx.value < 0 || progressObx.value > 1)?
+                        Column(children: <Widget>[
+                          FractionallySizedBox(
+                            widthFactor: 1,
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                textStyle: MaterialStateProperty.all(
+                                    TextStyle(fontSize: buttonTextSize)),
+                                foregroundColor:
+                                MaterialStateProperty.all(Colors.white),
+                                shape: MaterialStateProperty.all(
+                                    RoundedRectangleBorder(
+                                        borderRadius:
+                                        BorderRadius.circular(5))),
+                                elevation: MaterialStateProperty.all(0),
+                                backgroundColor: MaterialStateProperty.all(
+                                    themeColor),
+                              ),
+                              onPressed: progressObx.value > 1
+                                  ? onInstall
+                                  : onUpdate,
+                              child: Text(progressObx.value > 1
+                                  ? getBtnInstallTxt()
+                                  : updateButtonText),
+                            ),
+                          ),
+                          if (enableIgnore && onIgnore != null)
+                            FractionallySizedBox(
+                                widthFactor: 1,
+                                child: TextButton(
+                                  style: ButtonStyle(
+                                    tapTargetSize:
+                                    MaterialTapTargetSize.shrinkWrap,
+                                    textStyle: MaterialStateProperty.all(
+                                        TextStyle(
+                                            fontSize: buttonTextSize)),
+                                    foregroundColor: MaterialStateProperty.all(
+                                        const Color(0xFF666666)),
+                                    shape: MaterialStateProperty.all(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                            BorderRadius.circular(5))),
+                                  ),
+                                  onPressed: onIgnore,
+                                  child: Text(ignoreButtonText),
+                                ))
+                          else
+                            const SizedBox()
+                        ])
+                            :
+                        NumberProgress(
+                            value: progressObx.value,
+                            backgroundColor: progressBackgroundColor,
+                            valueColor: themeColor,
+                            padding: const EdgeInsets.symmetric(vertical: 10))),
+                      ],
+                    )),
+              ),
+              if (!isForce)
+                Column(children: <Widget>[
+                  const SizedBox(
+                      width: 1.5,
+                      height: 50,
+                      child: DecoratedBox(
+                          decoration: BoxDecoration(color: Colors.white))),
+                  IconButton(
+                    iconSize: 30,
+                    constraints:
+                    const BoxConstraints(maxHeight: 30, maxWidth: 30),
+                    padding: EdgeInsets.zero,
+                    icon: Image.asset('assets/img/update_ic_close.png'),
+                    onPressed: onClose,
+                  )
+                ])
+              else
+                const SizedBox()
+            ],
           ),
         ));
   }
