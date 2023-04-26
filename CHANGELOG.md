@@ -1,3 +1,7 @@
+## 0.4.0
+
+* update publish ci.
+
 ## 0.3.0
 
 * update readme.

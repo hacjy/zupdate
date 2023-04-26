@@ -67,7 +67,7 @@ To use this plugin, add `zupdate` as a [dependency in your `pubspec.yaml` file](
 ```
 //pub 集成
 dependencies:
-  zupdate: ^0.3.0
+  zupdate: ^0.4.0
 
 //github  集成
 dependencies:
