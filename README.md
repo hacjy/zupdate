@@ -13,53 +13,53 @@ You can refer to the following project:
 ## Important changes
 * A beautiful set of updated UI has been provided.
 * A flutter plugin 【install_plugin】 for install apk for android; and using url to go to app store for iOS.
-* use get: ^4.6.5 and flutter_screenutil: ^5.5.3+2：\
-1、in the pubspec.yaml file, add get: ^4.6.5 and flutter_screenutil: ^5.5.3+2 as a dependency.\
-2、in the main.dart file, the root node needs to use the following code
-``` dart
-//根结点要要使用ScreenUtilInit和getx的GetMaterialApp
-    return ScreenUtilInit(
-        designSize: const Size(1920, 1080),
-    minTextAdapt: true,
-    splitScreenMode: true,
-    builder: (context, Widget? widget) {
+*  **Required settings：** \
+    1、in the pubspec.yaml file, **add get: ^4.6.5 and flutter_screenutil: ^5.5.3+2 as a dependency.**\
+    2、in the main.dart file, the root node needs to use the following code
+    ``` dart
+    //根结点要要使用ScreenUtilInit和getx的GetMaterialApp
+        return ScreenUtilInit(
+            designSize: const Size(1920, 1080),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context, Widget? widget) {
 
-   return GetMaterialApp(
-      home: Scaffold(
-          appBar: AppBar(
-            title: const Text('VersionUpdate Plugin App'),
+       return GetMaterialApp(
+          home: Scaffold(
+              appBar: AppBar(
+                title: const Text('VersionUpdate Plugin App'),
+              ),
+              body: GestureDetector(
+                onTap: (){
+                  UpdateVersion.appUpdate(context);
+                },
+                child: const Center(child: SizedBox(
+                  width: 100,
+                  height: 100,
+                  child: Text('Check Update'),
+                ),)
+              )
           ),
-          body: GestureDetector(
-            onTap: (){
-              UpdateVersion.appUpdate(context);
-            },
-            child: const Center(child: SizedBox(
-              width: 100,
-              height: 100,
-              child: Text('Check Update'),
-            ),)
-          )
-      ),
-    );});
-  }
-```
-3、 in the pubspec.yaml file, use the following code
-```
-assets:
-- assets/
-- assets/img/
-```
-then add update_bg_app_top.png and update_ic_close.png to assets/img. These two images are copied from assets/img in example.\
-4、Support custom header image, button theme color, progress bar color, title, height of title from header image, apk file name, whether to display Chinese text
-```
-UpdateConfig(
-     apkName: 'test.apk',
-     title: 'test update version',
-     themeColor: Colors.blueAccent,
-     progressBackgroundColor: Colors.blue.withOpacity(0.3),
-     extraHeight: 10,
-     chLanguage: true)
-```
+        );});
+      }
+    ```
+    3、 in the pubspec.yaml file, use the following code
+    ```
+    assets:
+    - assets/
+    - assets/img/
+    ```
+    then **add update_bg_app_top.png and update_ic_close.png to assets/img.** These two images are copied from assets/img in example.
+* Support custom header image, button theme color, progress bar color, title, height of title from header image, apk file name, whether to display Chinese text
+    ```
+    UpdateConfig(
+         apkName: 'test.apk',
+         title: 'test update version',
+         themeColor: Colors.blueAccent,
+         progressBackgroundColor: Colors.blue.withOpacity(0.3),
+         extraHeight: 10,
+         chLanguage: true)
+    ```
 
 ## Usage
 
