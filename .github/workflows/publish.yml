@@ -20,5 +20,5 @@ jobs:
           accessToken: ${{ secrets.OAUTH_ACCESS_TOKEN }}
           refreshToken: ${{ secrets.OAUTH_REFRESH_TOKEN }}
           suppressBuildRunner: true
+          flutter: true
           skipTests: true
-          dryRunOnly: true
