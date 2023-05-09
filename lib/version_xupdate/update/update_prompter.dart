@@ -37,6 +37,7 @@ class UpdatePrompter {
   var downloadHandler;
   var retryDownloadCount = -1;
   var maxRetryCount = 4;
+  final retryDialogName = 'downloadFailDialog';
 
   void autoRetry(){
     if(retryDownloadCount>=maxRetryCount){//重试5次 0-4
@@ -62,6 +63,10 @@ class UpdatePrompter {
       return true;
     }
     return false;
+  }
+
+  bool isRetryDialogShow() {
+    return CommonUtils.getDialogName() == retryDialogName;
   }
 
   void dismissDialog() {
@@ -150,8 +155,7 @@ class UpdatePrompter {
   }
 
   showDownloadFailDialog() {
-    var name = 'downloadFailDialog';
-    if (name == CommonUtils.getDialogName()) {
+    if (isRetryDialogShow()) {
       return;
     }
     isDownloading = false;
@@ -160,7 +164,7 @@ class UpdatePrompter {
       _dialog!.update(-0.01);
     }
     confirmDialog(
-        name: name,
+        name: retryDialogName,
         shrink: true,
         // topIcon: Image.asset(
         //   BrandColorUtil.getLogo(),

@@ -22,7 +22,7 @@ class UpdateManager {
         onInstall: (String filePath) {
           CommonUtils.installAPP(filePath);
         });
-    if (!prompter!.isShow()) {
+    if (!isUpdateDialogShow() && !prompter!.isRetryDialogShow()) {
       prompter!.setUpdateEntity(params);
       prompter!.show(context,config: config);
     }
