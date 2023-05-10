@@ -274,7 +274,7 @@ class UpdatePrompter {
 
   /// 安装
   void doInstall() {
-    _dialog!.dismiss();
+    // _dialog!.dismiss();
     onInstall!
         .call(_apkFile != null ? _apkFile!.path : updateEntity!.downloadUrl);
   }
